@@ -22,13 +22,15 @@ public class DVDLibraryController {
 
             switch (menuSelection) {
                 case 1:
-                    io.print("LIST STUDENTS");
+                	createDVD();
                     break;
                 case 2:
-                    createDVD();
+                	viewDVD();
+
                     break;
                 case 3:
-                	viewDVD();
+                    io.print("LIST STUDENTS");
+
                     break;
                 case 4:
                     io.print("REMOVE STUDENT");
