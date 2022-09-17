@@ -33,8 +33,8 @@ public class DVDLibraryController {
                 	showDVDs();
                     break;
                 case 4:
-                    io.print("REMOVE STUDENT");
-                    break;
+                	removeDVD();
+                	break;
                 case 5:
                     keepGoing = false;
                     break;
@@ -46,6 +46,9 @@ public class DVDLibraryController {
         io.print("GOOD BYE");
 	}
 	
+	private int getMenuSelection() {
+        return view.printMenuAndGetSelection();
+    }
 	
 	private void createDVD() {
 		view.displayCreateDVDBanner();
@@ -67,4 +70,10 @@ public class DVDLibraryController {
 		view.displayDVDList(dvdList);
 	}
 	
+	private void removeDVD() {
+		view.displayRemoveDVDBanner();
+		String dvdTitle =view.getDVDByTitle();
+		DVD removedDVD = dao.removeDVD(dvdTitle);
+		view.displayRemoveResult(removedDVD);
+	}
 }
