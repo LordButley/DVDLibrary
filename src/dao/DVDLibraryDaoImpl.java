@@ -21,7 +21,7 @@ public class DVDLibraryDaoImpl implements DVDLibraryDao {
 	@Override
 	public DVD removeDVD(String title) {
 		// TODO Auto-generated method stub
-		return null;
+		return dvds.remove(title);
 	}
 
 	@Override

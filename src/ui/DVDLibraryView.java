@@ -79,4 +79,17 @@ public class DVDLibraryView {
 	public void displayAllDVDBanner() {
 	    io.print("=== Display All DVDs ===");
 	}
+	
+	public void displayRemoveDVDBanner() {
+	    io.print("=== Remove DVD ===");
+	}
+	
+	public void displayRemoveResult(DVD dvd) {
+	    if(dvd != null){
+	      io.print("DVD successfully removed.");
+	    }else{
+	      io.print("No such DVD.");
+	    }
+	    io.readString("Please hit enter to continue.");
+	}
 }
