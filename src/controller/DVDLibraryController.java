@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import dao.DVDLibraryDao;
 import dao.DVDLibraryDaoImpl;
 import dto.DVD;
@@ -26,11 +28,9 @@ public class DVDLibraryController {
                     break;
                 case 2:
                 	viewDVD();
-
                     break;
                 case 3:
-                    io.print("LIST STUDENTS");
-
+                	showDVDs();
                     break;
                 case 4:
                     io.print("REMOVE STUDENT");
@@ -59,6 +59,12 @@ public class DVDLibraryController {
 		String dvdTitle = view.getDVDByTitle();
 		DVD currentDVD = dao.getDVD(dvdTitle);
 		view.displayDVD(currentDVD);
+	}
+	
+	private void showDVDs() {
+		view.displayAllDVDBanner();
+		List<DVD> dvdList = dao.getAllDVDs();
+		view.displayDVDList(dvdList);
 	}
 	
 }

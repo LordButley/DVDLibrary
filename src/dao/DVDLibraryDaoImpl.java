@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +27,7 @@ public class DVDLibraryDaoImpl implements DVDLibraryDao {
 	@Override
 	public List<DVD> getAllDVDs() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<DVD>(dvds.values());
 	}
 
 	@Override

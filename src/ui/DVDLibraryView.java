@@ -1,5 +1,7 @@
 package ui;
 
+import java.util.List;
+
 import dto.DVD;
 
 public class DVDLibraryView {
@@ -59,12 +61,22 @@ public class DVDLibraryView {
         io.print("Main Menu");
         io.print("1. Add DVD to library");
         io.print("2. View DVD");
-        io.print("3. View a Student");
+        io.print("3. View Library");
         io.print("4. Remove a Student");
         io.print("5. Exit");
 
         return io.readInt("Please select from the above choices.");
     }
 	
+	public void displayDVDList(List<DVD> dvdList) {
+		int i = 1;
+		for(DVD currentDVD : dvdList) {
+			io.print(i +" "+currentDVD.getTitle());
+		}
+	    io.readString("Please hit enter to continue.");
+	}
 	
+	public void displayAllDVDBanner() {
+	    io.print("=== Display All DVDs ===");
+	}
 }
