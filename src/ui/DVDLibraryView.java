@@ -4,7 +4,9 @@ import dto.DVD;
 
 public class DVDLibraryView {
 	
-	public DVD getNewStudentInfo() {
+    private UserIO io = new UserIOConsoleImpl();
+	
+	public DVD getNewDVDInfo() {
 	    String title = io.readString("Please enter DVD Title");
 	    String releaseDate = io.readString("Please enter release date in the format yyyy-MM-dd");
 	    String mpaaRating = io.readString("Please enter MPAA Rating");
@@ -29,4 +31,30 @@ public class DVDLibraryView {
 	    io.readString(
 	            "DVD entry successfully created.  Please hit enter to continue");
 	}
+	
+	public void displayDVDBanner() {
+	    io.print("=== Display DVD ===");
+	}
+	
+	public String getDVDByTitle() {
+		return io.readString("Please enter the DVD Title.");
+	}
+	
+	public void displayDVD(DVD dvd) {
+		if(dvd != null) {
+			io.print(dvd.getTitle());
+			io.print(dvd.getReleaseDate());
+			io.print(dvd.getRating());
+			io.print(dvd.getDirector());
+			io.print(dvd.getStudio());
+			io.print(dvd.getNote());
+			io.print("");
+		}else {
+			io.print("DVD not in library");
+		}
+		io.readString("Please hit enter to continue");
+	}
+	
+	
+	
 }

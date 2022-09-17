@@ -11,8 +11,9 @@ public class DVDLibraryDaoImpl implements DVDLibraryDao {
 	private Map<String, DVD> dvds = new HashMap<>();
 	
 	@Override
-	public void addDVD(String title) {
+	public void addDVD(String title, DVD dvd) {
 		// TODO Auto-generated method stub
+		dvds.put(title, dvd);
 		
 	}
 
@@ -31,7 +32,7 @@ public class DVDLibraryDaoImpl implements DVDLibraryDao {
 	@Override
 	public DVD getDVD(String title) {
 		// TODO Auto-generated method stub
-		return null;
+		return dvds.get(title);
 	}
 
 }

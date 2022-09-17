@@ -6,7 +6,7 @@ import dto.DVD;
 
 public interface DVDLibraryDao {
 
-	void addDVD(String title);
+	void addDVD(String title, DVD dvd);
 		
 	DVD removeDVD(String title);
 	
