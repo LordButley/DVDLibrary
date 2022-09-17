@@ -9,6 +9,10 @@ public class DVD {
 	private String studio;
 	private String note;
 	
+	public DVD(String title) {
+		this.title = title;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
