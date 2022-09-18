@@ -22,7 +22,8 @@ public class UserIOConsoleImpl implements UserIO {
 	@Override
 	public int readInt(String prompt) {
 		// TODO Auto-generated method stub
-		return myScanner.nextInt();
+		String nextLine = myScanner.nextLine();
+		return Integer.parseInt(nextLine);
 	}
 
 }

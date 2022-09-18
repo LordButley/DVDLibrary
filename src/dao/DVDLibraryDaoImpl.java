@@ -9,6 +9,8 @@ import dto.DVD;
 
 public class DVDLibraryDaoImpl implements DVDLibraryDao {
 	
+	public static final String LIBRARY_FILE = "dvdlibrary.txt";
+	public static final String DELIMITER = "::";
 	private Map<String, DVD> dvds = new HashMap<>();
 	
 	@Override

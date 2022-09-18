@@ -6,7 +6,11 @@ import dto.DVD;
 
 public class DVDLibraryView {
 	
-    private UserIO io = new UserIOConsoleImpl();
+    private UserIO io;
+    
+    public DVDLibraryView(UserIO io) {
+    	this.io = io;
+    }
 	
 	public DVD getNewDVDInfo() {
 	    String title = io.readString("Please enter DVD Title");
@@ -91,5 +95,13 @@ public class DVDLibraryView {
 	      io.print("No such DVD.");
 	    }
 	    io.readString("Please hit enter to continue.");
+	}
+	
+	public void displayExitBanner() {
+	    io.print("Good Bye!!!");
+	}
+
+	public void displayUnknownCommandBanner() {
+	    io.print("Unknown Command!!!");
 	}
 }

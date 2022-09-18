@@ -11,9 +11,13 @@ import ui.UserIOConsoleImpl;
 
 public class DVDLibraryController {
 	
-	private DVDLibraryView view = new DVDLibraryView();
-    private UserIO io = new UserIOConsoleImpl();
-	private DVDLibraryDao dao = new DVDLibraryDaoImpl();
+	private DVDLibraryView view;
+	private DVDLibraryDao dao;
+	
+	public DVDLibraryController(DVDLibraryDao dao, DVDLibraryView view) {
+		this.dao = dao;
+		this.view = view;
+	}
 	
 	public void run() {
 		
@@ -39,11 +43,11 @@ public class DVDLibraryController {
                     keepGoing = false;
                     break;
                 default:
-                    io.print("UNKNOWN COMMAND");
+                    view.displayExitBanner();
             }
 
         }
-        io.print("GOOD BYE");
+        exitMessage();
 	}
 	
 	private int getMenuSelection() {
@@ -75,5 +79,13 @@ public class DVDLibraryController {
 		String dvdTitle =view.getDVDByTitle();
 		DVD removedDVD = dao.removeDVD(dvdTitle);
 		view.displayRemoveResult(removedDVD);
+	}
+	
+	private void unknownCommand() {
+	    view.displayUnknownCommandBanner();
+	}
+
+	private void exitMessage() {
+	    view.displayExitBanner();
 	}
 }
