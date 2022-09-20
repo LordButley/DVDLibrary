@@ -66,8 +66,9 @@ public class DVDLibraryView {
         io.print("1. Add DVD to library");
         io.print("2. View DVD");
         io.print("3. View Library");
-        io.print("4. Remove a Student");
-        io.print("5. Exit");
+        io.print("4. Remove a DVD");
+        io.print("5. Edit a DVD");
+        io.print("6. Exit");
 
         return io.readInt("Please select from the above choices.");
     }
@@ -76,6 +77,7 @@ public class DVDLibraryView {
 		int i = 1;
 		for(DVD currentDVD : dvdList) {
 			io.print(i +" "+currentDVD.getTitle());
+			i++;
 		}
 	    io.readString("Please hit enter to continue.");
 	}
@@ -101,7 +103,43 @@ public class DVDLibraryView {
 	    io.print("Good Bye!!!");
 	}
 
-	public void displayUnknownCommandBanner() {
-	    io.print("Unknown Command!!!");
+//	public void displayUnknownCommandBanner() {
+//	    io.print("Unknown Command!!!");
+//	}
+	
+	public void displayErrorMessage(String errorMsg) {
+	    io.print("=== ERROR ===");
+	    io.print(errorMsg);
+	}
+
+
+	public void displayEditDVDBanner() {
+	    io.print("=== Edit DVD ===");
+	}
+	
+	public void displayEditDVDSuccessBanner() {
+	    io.readString(
+	            "DVD entry successfully changed.  Please hit enter to continue");
+	}
+	
+	public int printDVDAndGetSelection(DVD dvd) {
+		if(dvd != null) {
+	        io.print("DVD data");
+	        io.print("1. Title: "+dvd.getTitle());
+	        io.print("2. Release Date: "+dvd.getReleaseDate());
+	        io.print("3. Rating: "+dvd.getRating());
+	        io.print("4. Director: "+dvd.getDirector());
+	        io.print("5. Studio: "+dvd.getStudio());
+	        io.print("6. Notes: "+dvd.getNote());
+	        io.print("");
+		}else {
+			io.print("DVD not in library");
+		}
+        return io.readInt("Please select the number relating to the information you want to change.");
+    }
+	
+	public String inputNewValue() {
+	    return io.readString("Please enter new value");
+
 	}
 }

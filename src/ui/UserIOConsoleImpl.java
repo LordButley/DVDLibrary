@@ -22,8 +22,21 @@ public class UserIOConsoleImpl implements UserIO {
 	@Override
 	public int readInt(String prompt) {
 		// TODO Auto-generated method stub
-		String nextLine = myScanner.nextLine();
-		return Integer.parseInt(nextLine);
+		boolean isValid = false;
+		int choice = 0;
+		do {
+			try {
+				System.out.println(prompt);
+				String nextLine = myScanner.nextLine();
+				choice = Integer.parseInt(nextLine);
+				if (choice > 0 && choice < 7) {
+					isValid = true;
+				}
+			}catch(NumberFormatException e) {
+				System.out.println("You did not enter a number between 1 and 6");
+			}
+		}while(!isValid);
+		return choice;
 	}
 
 }
